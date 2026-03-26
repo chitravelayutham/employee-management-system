@@ -40,29 +40,15 @@ const Navbar = () => {
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
         {/* Common links */}
         <span><Link to="/home">Home</Link></span>
+        
 
         {/* Role-based links */}
-        {role === "admin" && (
-          <>
-            <span><Link to="/employees">Manage Employees</Link></span>
+       
+            <span><Link to="/dashboard">Dashboard</Link></span>
             <span><Link to="/reports">Reports</Link></span>
-          </>
-        )}
-
-        {role === "employee" && (
-          <>
             <span><Link to="/profile">My Profile</Link></span>
-            <span><Link to="/tasks">Tasks</Link></span>
-          </>
-        )}
-
-        {/* Auth Links */}
-          {!token && (
-            <>
-              <span><Link to="/">Login</Link></span>
-              <span><Link to="/about">About</Link></span>
-            </>
-          )}
+           
+       
         </div>
         {/* Logout button aligned right */}
         {token && (

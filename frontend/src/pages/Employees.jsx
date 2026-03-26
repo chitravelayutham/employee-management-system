@@ -32,7 +32,8 @@ const Employees = () => {
       .then(res => {
         setEmployees(res.data);
         setLoading(false);
-        })
+        console.log("API response:", res.data);
+      })
       .catch(err => {
         console.error(err);
         setLoading(false);
@@ -59,10 +60,9 @@ const Employees = () => {
     <div className="employees-container">
       <div className="employees-header">
         <h1>Employee Management</h1>
+        {/* Add Employee button only for admin */}
         {role === "admin" && (
-          <button className="add-employee-btn" onClick={() => navigate("/employees/create")}>
-            ➕ Add Employee
-          </button>
+          <button className="add-employee-btn" onClick={() => navigate("/employees/create")}>➕ Add Employee</button>
         )}
       </div>
 
@@ -90,7 +90,7 @@ const Employees = () => {
           <div className="no-employees">📋 No employees found matching your criteria.</div>
         ) : (
           <table className="employees-table">
-            <thead>
+            <thead> 
               <tr>
                 <th>Employee ID</th>
                 <th>Name</th>
@@ -98,6 +98,7 @@ const Employees = () => {
                 <th>Position</th>
                 <th>Department</th>
                 <th>Status</th>
+                {/* Only show Actions column if admin */}
                 {role === "admin" && <th>Actions</th>}
               </tr>
             </thead>
@@ -110,16 +111,17 @@ const Employees = () => {
                   <td>{emp.position}</td>
                   <td>{emp.department}</td>
                   <td>{emp.status}</td>
-                  {role === "admin" && (
+                  {/* Only show Edit/Delete if admin */}
+                  {role === "admin" ? (
                     <td>
                       <button className="action-btn" onClick={() => navigate(`/employees/edit/${emp.employeeId}`)}>
                         ✏️ Edit
                       </button>
-                       <button className="action-btn delete-btn" onClick={() => handleDelete(emp.employeeId)}>
+                      <button className="action-btn delete-btn" onClick={() => handleDelete(emp.employeeId)}>
                         🗑️ Delete
                       </button>
                     </td>
-                  )}
+                  ) : null}
                 </tr>
               ))}
             </tbody>

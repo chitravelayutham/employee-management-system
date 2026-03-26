@@ -35,16 +35,14 @@ function Login() {
   }
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-         <div className="flex justify-start mb-6">
-                 <img src={logo} alt="Logo" className="h-16 w-16 object-contain" width={300} height={300} />
-               </div>
-       
-               <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-                 Employee Management System
-               </h2>
-
+    <div className="auth-container" style={{ minHeight: '100svh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div className="auth-card" style={{ width: '100%', maxWidth: 400 }}>
+        <div className="flex justify-start mb-6">
+          <img src={logo} alt="Logo" className="h-16 w-16 object-contain" width={300} height={300} />
+        </div>
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+          Employee Management System
+        </h2>
         <form className="auth-form" onSubmit={handleLogin}>
           <div className="form-group">
             <label className="form-label" htmlFor="username">Username</label>

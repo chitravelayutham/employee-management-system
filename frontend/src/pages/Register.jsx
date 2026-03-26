@@ -96,15 +96,17 @@ function Register() {
 
           <div className="form-group">
             <label className="form-label" htmlFor="role">Role</label>
-            <input
-              type="text"
+            <select
               id="role"
-              placeholder="Enter your role (e.g., employee, manager)"
               value={role}
               onChange={(e) => setRole(e.target.value)}
               className="form-input"
               required
-            />
+            >
+              <option value="">Select role</option>
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
           </div>
 
           {error && <div className="form-error">❌ {error}</div>}
