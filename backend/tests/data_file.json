@@ -1,0 +1,18 @@
+[
+  {
+    "employeeId": "EMP1001",
+    "name": "Alice",
+    "email": "alice@test.com",
+    "department": "IT",
+    "position": "Developer",
+    "status": "Active"
+  },
+  {
+    "employeeId": "EMP1002",
+    "name": "Bob",
+    "email": "bob@test.com",
+    "department": "Finance",
+    "position": "Analyst",
+    "status": "Active"
+  }
+]
