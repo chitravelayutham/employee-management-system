@@ -29,7 +29,7 @@ app = FastAPI(title="Employee Management System API", version="1.0", lifespan=li
 
 app.add_middleware( # To enable CORS for frontend-backend communication during development to avoid 405 Method Not Allowed.
     CORSMiddleware,
-    allow_origins=["*"],   # for development
+    allow_origins=["http://3.80.136.36:3000"],   # for development
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

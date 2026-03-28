@@ -3,7 +3,7 @@ import { jwtDecode } from "jwt-decode"
 import { useEffect, useState } from "react"
 import { PieChart, Pie, Tooltip, Legend, ResponsiveContainer } from "recharts"
 import axios from "axios"
-import { BASE_URL } from "../api/api"
+
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -16,7 +16,7 @@ function Dashboard() {
   } catch {
     user = null
   }
-
+    const BASE_URL = process.env.VITE_API_URL || "http://localhost:8080"
   const role = user?.role
 
   const [deptData, setDeptData] = useState([])

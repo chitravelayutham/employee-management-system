@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { jwtDecode } from "jwt-decode";
 import axios from "axios"
-import { BASE_URL } from "../api/api"
 
 const Employees = () => {
 // add state
@@ -17,7 +16,7 @@ const Employees = () => {
   const token = localStorage.getItem("access_token")
   const role = token ? jwtDecode(token).role : null
 
-
+  const BASE_URL = process.env.VITE_API_URL || "http://localhost:8080"
   useEffect(() => {
     let url = `${BASE_URL}/employees`;
     if (search) {

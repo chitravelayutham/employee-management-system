@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { jwtDecode } from "jwt-decode";
 import axios from "axios"
-import { BASE_URL } from "../api/api"
+
 
 const EmployeeForm = () => {
   const navigate = useNavigate()
@@ -16,6 +16,7 @@ const EmployeeForm = () => {
   const [error, setError] = useState("")
   const [success, setSuccess] = useState("")
 
+    const BASE_URL = process.env.VITE_API_URL || "http://localhost:8080"
   // Restrict non-admins
   useEffect(() => {
     if (role !== "admin") {
