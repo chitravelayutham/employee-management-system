@@ -3,6 +3,7 @@ import { jwtDecode } from "jwt-decode"
 import { useEffect, useState } from "react"
 import { PieChart, Pie, Tooltip, Legend, ResponsiveContainer } from "recharts"
 import axios from "axios"
+import { BASE_URL } from "../api/api"
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -25,7 +26,7 @@ function Dashboard() {
   useEffect(() => {
     let isMounted = true
 
-    axios.get("http://127.0.0.1:8000/employees", {
+    axios.get(`${BASE_URL}/employees`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

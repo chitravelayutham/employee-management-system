@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { jwtDecode } from "jwt-decode";
 import axios from "axios"
+import { BASE_URL } from "../api/api"
 
 const EmployeeForm = () => {
   const navigate = useNavigate()
   const { id } = useParams()
   const token = localStorage.getItem("access_token")
   const role = token ? jwtDecode(token).role : null
-  const baseURL = "http://127.0.0.1:8000"
+
     
   const [employee, setEmployee] = useState({ employeeId: "", name: "", email: "", department: "", role: "", position: "", status: "Active" })
   const [loading, setLoading] = useState(false)
@@ -27,7 +28,7 @@ const EmployeeForm = () => {
   useEffect(() => {
     if (id) {
       setLoading(true)
-      axios.get(`${baseURL}/employees/${id}`, {  
+      axios.get(`${BASE_URL}/employees/${id}`, {  
         headers: { Authorization: `Bearer ${token}` }
       })
         .then(res => {
@@ -64,8 +65,8 @@ const EmployeeForm = () => {
     setSuccess("")
 
     const apiCall = id
-      ? axios.put(`${baseURL}/employees/${id}`, employee, { headers: { Authorization: `Bearer ${token}` } })
-      : axios.post(`${baseURL}/employees/employee`, employee, { headers: { Authorization: `Bearer ${token}` } })
+      ? axios.put(`${BASE_URL}/employees/${id}`, employee, { headers: { Authorization: `Bearer ${token}` } })
+      : axios.post(`${BASE_URL}/employees/employee`, employee, { headers: { Authorization: `Bearer ${token}` } })
 
     apiCall
       .then(() => {

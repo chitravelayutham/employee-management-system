@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { jwtDecode } from "jwt-decode";
 import axios from "axios"
+import { BASE_URL } from "../api/api"
 
 const Employees = () => {
 // add state
@@ -15,14 +16,14 @@ const Employees = () => {
 
   const token = localStorage.getItem("access_token")
   const role = token ? jwtDecode(token).role : null
-  const baseURL = "http://127.0.0.1:8000"
+
 
   useEffect(() => {
-    let url = `${baseURL}/employees`;
+    let url = `${BASE_URL}/employees`;
     if (search) {
-      url = `${baseURL}/employees/search?name=${encodeURIComponent(search)}`;
-        } else if (departmentFilter) {
-          url = `${baseURL}/employees/department/${encodeURIComponent(departmentFilter)}`;
+      url = `${BASE_URL}/employees/search?name=${encodeURIComponent(search)}`;
+    } else if (departmentFilter) {
+      url = `${BASE_URL}/employees/department/${encodeURIComponent(departmentFilter)}`;
     }
 
     setLoading(true);
@@ -46,7 +47,7 @@ const Employees = () => {
       return
     }
     if (!window.confirm("Are you sure you want to delete this employee?")) return
-     axios.delete(`${baseURL}/employees/${id}`, {
+    axios.delete(`${BASE_URL}/employees/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
        .then(() => setEmployees(prev => prev.filter(emp => emp.employeeId !== id)))
