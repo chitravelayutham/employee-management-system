@@ -22,25 +22,25 @@ The system is designed to be:
       
 **Features**
     🔐 Authentication & Security
-    User registration & login
-    Password hashing using bcrypt
-    JWT-based authentication
-    Token validation middleware
-    Secure protected routes  
+          User registration & login
+          Password hashing using bcrypt
+          JWT-based authentication
+          Token validation middleware
+          Secure protected routes  
     
 🧑‍💼** Role-Based Access Control (RBAC)**
-    Role	        Permissions
-    Admin	        Full CRUD
-    Manager	      Read + limited update
-    Employee	    Read-only (self data)
+          Role	        Permissions
+          Admin	        Full CRUD
+          Manager	        Read + limited update
+          Employee	  Read-only (self data)
     
 📌 **CRUD APIs**
-    Method	Endpoint
-    POST	/employees
-    GET	/employees
-    GET	/employees/{id}
-    PUT	/employees/{id}
-    DELETE	/employees/{id}
+          Method	Endpoint
+          POST	/employees
+          GET	/employees
+          GET	/employees/{id}
+          PUT	/employees/{id}
+          DELETE	/employees/{id}
     
 🗄️ **Database**
     MongoDB hosted on EC2
@@ -82,6 +82,7 @@ The system is designed to be:
     useState
     useEffect
     Axios for API calls
+    
 📁 **Frontend Structure**
     frontend/
      ├── components/
