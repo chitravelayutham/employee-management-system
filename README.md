@@ -8,31 +8,31 @@ This application enables administrators to manage employees with full CRUD opera
 
 The system is designed to be:
 
-      🔐 Secure (JWT + password hashing)
-      ⚡ Scalable (serverless backend + CDN)
-      ☁️ Cloud-native (AWS)
-      🧱 Fully automated (Terraform)
-      🛠️ Backend (FastAPI)
+🔐 Secure (JWT + password hashing)
+⚡ Scalable (serverless backend + CDN)
+☁️ Cloud-native (AWS)
+🧱 Fully automated (Terraform)
+ 🛠️ Backend (FastAPI)
       
-        **Technologies**
+  **Technologies**
              Python
              FastAPI
              MongoDB
              REST APIs
-		 Postman
+		     Postman
              React
              HTML
              CSS
              Axios
-		 Terraform
-		 AWS:
-		 	S3
-			EC2
-			Cloudfront
-			API Gateway
-			Lambda
-			IAM
-			VPC
-			Security Groups
+		     Terraform
+		     AWS:
+			 	S3
+				EC2
+				Cloudfront
+				API Gateway
+				Lambda
+				IAM
+				VPC
+				Security Groups
                   
             
